@@ -16,11 +16,15 @@ MODEL = "gemini-2.5-flash"
 # ПОДКЛЮЧЕНИЕ GEMINI
 # ============================================================
 
-def get_client():
 
+def get_client():
     return genai.Client(
-        api_key=st.secrets["GEMINI_API_KEY"]
+        api_key=st.secrets["GEMINI_API_KEY"],
+        http_options=types.HttpOptions(
+            api_version="v1beta"
+        )
     )
+
 
 
 # ============================================================
